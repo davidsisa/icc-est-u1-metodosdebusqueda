@@ -13,5 +13,32 @@ public class App {
         } else {
             System.out.println("El elemento se encuentra en la posicion: " + posicion);
         }
+        int[] arrayG = new int[100000];
+        for (int i = 0; i < arrayG.length; i++) {
+            arrayG[i] = i + 1;  
+        }
+        System.out.println("Ingresar el elemento que quiere buscar en el arreglo");
+        int buscarNumeroG = leer.nextInt();
+        long starTime = System.nanoTime();
+        int posicionG = buscar.busquedaBinaria(arrayG,buscarNumeroG);
+        long endTime = System.nanoTime();
+        long starTime2 = System.nanoTime();
+        int posicionSecuencial = buscar.busquedaSecuencial(arrayG, buscarNumeroG);
+        long endTime2 = System.nanoTime();
+        long duracion = endTime - starTime;
+        long duracion2 = endTime2 - starTime2;
+        if (posicionG == -1){
+            System.out.println("El elemento no se encuentra en el arreglo 404  Busqueda Binaria ");
+        } else {
+            System.out.println("El elemento se encuentra en la posicion con Busqueda Binaria: " + posicionG);
+            System.out.println(duracion);
+        }
+        if (posicionG == -1){
+            System.out.println("El elemento no se encuentra en el arreglo 404 Busqueda Secuencial");
+        } else {
+            System.out.println("El elemento se encuentra en la posicion con Busqueda Secuencial: " + posicionSecuencial);
+            System.out.println(duracion2);
+        }
+
     }
 }
